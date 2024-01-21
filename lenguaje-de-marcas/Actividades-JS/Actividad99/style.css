@@ -1,0 +1,104 @@
+    body {
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        background-color: #333;
+        color: white;
+    }
+
+    h1 {
+        color: #4caf50;
+    }
+
+    form {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        flex: 1;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    #formularioTarea button:hover {
+        background-color: #45a049;
+    }
+    .contenedor-columnas {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+        width: 100%;
+    }
+
+    .columna {
+        flex: 1;
+        margin: 0 10px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    #columnaPendientes {
+        background-color: #555;
+    }
+
+    #columnaCompletadas {
+        background-color: #007bff;
+    }
+
+    #columnaEliminadas {
+        background-color: #dc3545;
+    }
+
+    .filtrar button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    .filtrar button:hover {
+        background-color: #45a049;
+    }
+
+    .tarea {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: black;
+    }
+
+    .tarea input {
+        margin-right: 10px;
+    }
+
+    .completada {
+        text-decoration: line-through;
+        color: #888;
+    }
+
+    .eliminada {
+        color: #dc3545;
+    }
+
+    ul{
+        padding: 0px;
+    }

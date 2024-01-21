@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Lista de Tareas</h1>
+    <form id="formularioTarea">
+        <input type="text" id="entradaTarea" placeholder="Agregar nueva tarea" required>
+        <button type="button" onclick="agregarTarea()">Agregar</button>
+    </form>
+    <div class="filtrar">
+        <button onclick="filtrarTareas('todas')">Mostrar Todas</button>
+        <button onclick="filtrarTareas('pendientes')">Mostrar Pendientes</button>
+        <button onclick="filtrarTareas('completadas')">Mostrar Completadas</button>
+    </div>
+    <div class="contenedor-columnas">
+        <div class="columna" id="columnaPendientes">
+            <h2>Tareas Pendientes</h2>
+            <ul id="listaPendientes"></ul>
+        </div>
+        <div class="columna" id="columnaCompletadas">
+            <h2>Tareas Completadas</h2>
+            <ul id="listaCompletadas"></ul>
+        </div>
+        <div class="columna" id="columnaEliminadas">
+            <h2>Tareas Eliminadas</h2>
+            <ul id="listaEliminadas"></ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
