@@ -10,8 +10,9 @@ class Nave(pygame.sprite.Sprite):
         self.indice_images = 0
         self.image = self.images[self.indice_images]
         self.contador_image = 0
-        self.mask = pygame.mask.from_surface(self.image)
         self.puntuacion = 0
+        self.mask = pygame.mask.from_surface(self.image)
+
         #Cremamos un rectangulo a partir de la imagen
         self.rect = self.image.get_rect()
         #Actualizamos la posicion del rectangulo
@@ -61,11 +62,13 @@ class Nave(pygame.sprite.Sprite):
         aliado_colision = pygame.sprite.spritecollideany(self, grupo_sprite_aliados, pygame.sprite.collide_mask)
         if aliado_colision:
             aliado_colision.kill()
-            self.puntuacion += 20
-            print("Has obtenido +20 puntos!")
-            texto = self.font.render("+20", True, "Red")
-            pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
+            # self.puntuacion += 20
+            # print("Has obtenido +20 puntos!")
+            # texto = self.font.render("+20", True, "Red")
+            # pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
             
+        # grupo_sprite_texto = args[6]
+        
 
     def disparar(self, grupo_sprite_todos, grupo_sprite_balas):
         momento_actual = pygame.time.get_ticks()
@@ -74,7 +77,7 @@ class Nave(pygame.sprite.Sprite):
             grupo_sprite_todos.add(bala)
             grupo_sprite_balas.add(bala)
             self.ultimo_disparo = momento_actual
-        
+    
 class Enemigo(pygame.sprite.Sprite):
     #Aqui ceamos el costructor
     def __init__(self, posicion) -> None:
@@ -160,4 +163,17 @@ class Bala(pygame.sprite.Sprite):
         
     def update (self,*args: any,**kwargs: any) -> None:
         self.rect.y -=5
+
+# class Texto(pygame.sprite.Sprite):
+#     def __init__(self, posicion) -> None:
+#         super().__init__()
+#         pantalla = pygame.display.get_surface()
+#         texto = self.font.render("+20", True, "Red")
+#         pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
+#         self.rect = self.image.get_rect()
+#         self.rect.center = posicion
+#         self.grupo_sprite_texto.add(texto)
         
+#     def update (self,*args: any,**kwargs: any) -> None:
+#         self.rect.y -=5
+

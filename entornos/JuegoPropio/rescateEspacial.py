@@ -2,7 +2,6 @@ import pygame
 import elementos
 import random
 import pygame_menu
-
 #Iniciamos el juego
 pygame.init()
 #Creamos una fuente para la pausa
@@ -10,6 +9,7 @@ font = pygame.font.Font(None, 30)
 #Creamos la pantalla
 tamanyo = (800, 600)
 pantalla = pygame.display.set_mode(tamanyo)
+
 
 #Creamo un reloj para limitar el framerate
 reloj = pygame.time.Clock()
@@ -19,6 +19,20 @@ ultimo_enemigo_creado = 0
 ultimo_aliado_creado = 0
 frecuencia_creacion_enemigos = 2000
 frecuencia_creacion_aliados = 2000
+
+#Texto del juego
+puntuacion = 0
+ROJO = (255,0,0)
+consolas = pygame.font.match_font('consolas')
+
+
+def muestra_texto(pantalla,fuente,texto,color, dimensiones, x, y):
+        tipo_letra = pygame.font.Font(fuente,dimensiones)
+        superficie = tipo_letra.render(texto,True, color)
+        rectangulo = superficie.get_rect()
+        rectangulo.center = (x, y)
+        pantalla.blit(superficie,rectangulo)
+
 #Creamos el bucle principal
 #Creamos el menu del juego
 def set_difficulty(value, difficulty):
@@ -31,7 +45,7 @@ def start_the_game():
     # Do the job here !
     #Booleano de control
     running = [True]
-    
+    global puntuacion
     global frecuencia_creacion_aliados
     global ultimo_aliado_creado
     global ultimo_enemigo_creado
@@ -46,6 +60,7 @@ def start_the_game():
     grupo_sprite_enemigos = pygame.sprite.Group()
     grupo_sprite_todos = pygame.sprite.Group()
     grupo_sprite_aliado = pygame.sprite.Group()
+    grupo_sprite_texto = pygame.sprite.Group()
     grupo_sprite_todos.add(elementos.Fondo((0, 0)))
     grupo_sprite_todos.add(elementos.Fondo((0, -pantalla.get_height())))
     grupo_sprite_todos.add(nave)
@@ -95,10 +110,14 @@ def start_the_game():
                 grupo_sprite_todos.add(aliado)
                 grupo_sprite_aliado.add(aliado)
                 ultimo_aliado_creado = momento_actual
-            
+                #Añadimos el texto
+                muestra_texto(pantalla,consolas,str(puntuacion), ROJO, 40, 700, 50)
+                if nave.aliado_colision:
+                    puntuacion +=20
+
             #Pintamos
             pantalla.fill((255, 255, 255))
-            grupo_sprite_todos.update(teclas, grupo_sprite_todos, grupo_sprite_balas, grupo_sprite_enemigos, running, grupo_sprite_aliado)
+            grupo_sprite_todos.update(teclas, grupo_sprite_todos, grupo_sprite_balas, grupo_sprite_enemigos, running, grupo_sprite_aliado,grupo_sprite_texto)
         
         grupo_sprite_todos.draw(pantalla)
         #Si pausa escribe esto:

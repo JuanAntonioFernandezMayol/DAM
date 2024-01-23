@@ -41,8 +41,6 @@ function cambiarEstadoTarea(indice) {
 
 function eliminarTarea(indice) {
     tareas[indice].eliminada = !tareas[indice].eliminada;
-
-    // Si la tarea se está restaurando, marcarla como no completada
     if (!tareas[indice].eliminada) {
         tareas[indice].completada = false;
     }
