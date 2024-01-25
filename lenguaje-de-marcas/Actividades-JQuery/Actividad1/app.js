@@ -1,4 +1,4 @@
-$(function () {
+$(function agregarcomentarios() {
     $("#add").click(function () {
         let newCommentTextBox = $("#comment");
         let commentText = newCommentTextBox.val();
@@ -6,6 +6,8 @@ $(function () {
         newCommentTextBox.val('');
     });
 });
+
+// + "<button #dele>" + "X" + "</button>" +
 
 function eliminarultimo() {
     $("li:last").remove();
