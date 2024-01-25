@@ -1,6 +1,6 @@
 public class Personaje {
-    private String nombrePersonaje;
-    private Integer vidaPersonaje;
+    public String nombrePersonaje;
+    public Integer vidaPersonaje;
 
     public Personaje(String nombrePersonaje, Integer vidaPersonaje) {
         this.nombrePersonaje = nombrePersonaje;
