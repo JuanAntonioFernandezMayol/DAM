@@ -26,16 +26,24 @@ public class HeroSlay {
         mazo.add(Carta4);
         personajes.add(Heroe);
         personajes.add(Villano);
-        int turno = random.nextInt(1, 2);
 
-        System.out.println("\n=== Resultado Final ===");
-        System.out.println("Puntuación:");
-        System.out.println("Heroe: " + Heroe);
-        System.out.println("Villano: " + Villano);
-        if (Heroe.vidaPersonaje > Villano.vidaPersonaje) {
-            System.out.println("¡Felicidades! Has ganado el duelo.");
-        } else {
-            System.out.println("La máquina ha ganado el duelo.");
+        while(Heroe.getVidaPersonaje() > 0 && Villano.getVidaPersonaje()> 0){
+            System.out.println("Ronda en progreso...");
+            System.out.println("Vida del Heroe: " + Heroe.getVidaPersonaje());
+            System.out.println("Vida del Villano: " + Villano.getVidaPersonaje());
+        }   
+
+            System.out.println("\n=== Resultado Final ===");
+            if (Heroe.vidaPersonaje > Villano.vidaPersonaje) {
+                System.out.println("¡Felicidades! Has ganado el duelo.");
+            } else {
+                System.out.println("La máquina ha ganado el duelo.");
+            }
+
+            System.out.println("");
         }
+        // private static void generarRonda(){
+        //     int i = 0;
+        //     while (i < )
+        // }
     }
-}
