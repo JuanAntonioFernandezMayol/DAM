@@ -7,18 +7,18 @@ pygame.init()
 #Creamos una fuente para la pausa
 font = pygame.font.Font(None, 30)
 #Creamos la pantalla
-tamanyo = (800, 600)
+tamanyo = (600, 800)
 pantalla = pygame.display.set_mode(tamanyo)
 
 
 #Creamo un reloj para limitar el framerate
 reloj = pygame.time.Clock()
-FPS = 30
+FPS = 60
 
 ultimo_enemigo_creado = 0
 ultimo_aliado_creado = 0
-frecuencia_creacion_enemigos = 2000
-frecuencia_creacion_aliados = 2000
+frecuencia_creacion_enemigos = 1500
+frecuencia_creacion_aliados = 1500
 
 #Texto del juego
 puntuacion = 0
@@ -37,6 +37,7 @@ def muestra_texto(pantalla,fuente,texto,color, dimensiones, x, y):
 #Creamos el menu del juego
 def set_difficulty(value, difficulty):
     # Do the job here !
+    global frecuencia_creacion_aliados
     global frecuencia_creacion_enemigos
     frecuencia_creacion_enemigos = difficulty
     frecuencia_creacion_aliados = difficulty
@@ -53,7 +54,7 @@ def start_the_game():
     global FPS
     global reloj
     #Creamos la nave
-    posicion = (360,500)
+    posicion = (360,700)
     nave = elementos.Nave(posicion)
     
     grupo_sprite_balas = pygame.sprite.Group()
@@ -93,8 +94,8 @@ def start_the_game():
             
             momento_actual = pygame.time.get_ticks()
             if (momento_actual > ultimo_enemigo_creado + frecuencia_creacion_enemigos):
-                cordX = random.randint(0, pantalla.get_width())
-                cordY = -200
+                cordX = random.randint(0, pantalla.get_width() -60)
+                cordY = -60
                 # X = random.randint(0,600)
                 #Creamos el enemigo y lo añadismos a los grupos.
                 enemigo = elementos.Enemigo((cordX, cordY))
@@ -104,16 +105,16 @@ def start_the_game():
                 ultimo_enemigo_creado = momento_actual
                 
             if (momento_actual > ultimo_aliado_creado + frecuencia_creacion_aliados):
-                cordX = random.randint(0, pantalla.get_width())
-                cordY = -200
+                cordX = random.randint(0, pantalla.get_width() -60)
+                cordY = -60
                 aliado = elementos.Aliado((cordX, cordY))
                 grupo_sprite_todos.add(aliado)
                 grupo_sprite_aliado.add(aliado)
                 ultimo_aliado_creado = momento_actual
                 #Añadimos el texto
                 muestra_texto(pantalla,consolas,str(puntuacion), ROJO, 40, 700, 50)
-                if nave.aliado_colision:
-                    puntuacion +=20
+                # if nave.aliado_colision:
+                #     puntuacion +=20
 
             #Pintamos
             pantalla.fill((255, 255, 255))
@@ -133,7 +134,7 @@ def start_the_game():
 menu = pygame_menu.Menu('Welcome', 400, 300, theme=pygame_menu.themes.THEME_BLUE)
 
 menu.add.text_input('Name :', default='John Doe')
-menu.add.selector('Difficulty :', [('Hard', 200), ('Easy', 2000)], onchange=set_difficulty)
+menu.add.selector('Difficulty :', [('Hard', 1000), ('Easy', 2000)], onchange=set_difficulty)
 menu.add.button('Play', start_the_game)
 menu.add.button('Quit', pygame_menu.events.EXIT)
 

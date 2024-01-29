@@ -57,11 +57,13 @@ class Nave(pygame.sprite.Sprite):
         if enemigo_colision:
             enemigo_colision.kill()
             running[0] = False
-        
+        font = pygame.font.Font(None, 30)
         grupo_sprite_aliados = args[5]
         aliado_colision = pygame.sprite.spritecollideany(self, grupo_sprite_aliados, pygame.sprite.collide_mask)
         if aliado_colision:
             aliado_colision.kill()
+            texto = font.render("+20 Puntos", True, "White")
+            pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
             # self.puntuacion += 20
             # print("Has obtenido +20 puntos!")
             # texto = self.font.render("+20", True, "Red")
