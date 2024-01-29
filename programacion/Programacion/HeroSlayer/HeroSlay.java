@@ -1,49 +1,56 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * HeroSlay
  */
 public class HeroSlay {
     public static void main(String[] args) {
-        Random random = new Random();
         List<Carta> mazo = new ArrayList<>();
         List<Personaje> personajes = new ArrayList<>();
-        Carta Carta1 = new Carta("Pepe", TipoCarta.ATAQUE, 6);
+        Carta Carta1 = new Carta("Pepe", TipoCarta.ATAQUE, 3);
         Carta1.pintarInformacion();
-        Carta Carta2 = new Carta("Luis", TipoCarta.CURA, 4);
+        Carta Carta2 = new Carta("Luis", TipoCarta.CURA, 2);
         Carta2.pintarInformacion();
-        Carta Carta3 = new Carta("Jose", TipoCarta.ATURDIR, 4);
+        Carta Carta3 = new Carta("Jose", TipoCarta.ATURDIR, 1);
         Carta3.pintarInformacion();
-        Carta Carta4 = new Carta("Hola", TipoCarta.ATAQUE, 4);
-        Carta4.pintarInformacion();
         Personaje Heroe = new Personaje("Heroe", 10);
         Personaje Villano = new Personaje("Villano", 10);
         mazo.add(Carta1);
         mazo.add(Carta2);
         mazo.add(Carta3);
-        mazo.add(Carta4);
         personajes.add(Heroe);
         personajes.add(Villano);
 
-        while(Heroe.getVidaPersonaje() > 0 && Villano.getVidaPersonaje()> 0){
-            System.out.println("Ronda en progreso...");
-            System.out.println("Vida del Heroe: " + Heroe.getVidaPersonaje());
-            System.out.println("Vida del Villano: " + Villano.getVidaPersonaje());
-        }   
+        Heroe.añadirCartaAlMazo(Carta1);
+        Heroe.añadirCartaAlMazo(Carta2);
+        Heroe.añadirCartaAlMazo(Carta3);
+        Villano.añadirCartaAlMazo(Carta1);
+        Villano.añadirCartaAlMazo(Carta2);
+        Villano.añadirCartaAlMazo(Carta3);
 
-            System.out.println("\n=== Resultado Final ===");
-            if (Heroe.vidaPersonaje > Villano.vidaPersonaje) {
-                System.out.println("¡Felicidades! Has ganado el duelo.");
-            } else {
-                System.out.println("La máquina ha ganado el duelo.");
-            }
-
-            System.out.println("");
+        while (Heroe.getVidaPersonaje() > 0 && Villano.getVidaPersonaje() > 0) {
+            jugarRonda(Heroe, Villano);
         }
-        // private static void generarRonda(){
-        //     int i = 0;
-        //     while (i < )
-        // }
+        System.out.println("\n=== Resultado Final ===");
+        if (Heroe.getVidaPersonaje() <= 0) {
+            System.out.println("¡Felicidades! Villano gana!.");
+        } else {
+            System.out.println("¡Felicidades! Heroe gana!.");
+        }
     }
+
+    private static void jugarRonda(Personaje jugador1, Personaje jugador2) {
+        Carta cartaJugador1 = jugador1.jugarCarta();
+        jugador2.recibirEfecto(cartaJugador1);
+
+        if (cartaJugador1.getTipoCarta() != TipoCarta.ATURDIR) {
+            Carta cartaJugador2 = jugador2.jugarCarta();
+            jugador1.recibirEfecto(cartaJugador2);
+        }
+        System.out.println("---- Resultado de la ronda ----");
+        System.out.println("Vida del Heroe: " + jugador1.getVidaPersonaje());
+        System.out.println("Vida del Villano: " + jugador2.getVidaPersonaje());
+        System.out.println("--------------");
+    }
+}

@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class NumeroAleatorio {
     public class AcertarelNumero {
 
-        public static void main(String[] args) {
+        public static void main() {
             Scanner escaner = new Scanner(System.in);
             Random random = new Random();
 
