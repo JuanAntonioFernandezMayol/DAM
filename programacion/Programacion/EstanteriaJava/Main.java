@@ -1,4 +1,5 @@
 package Programacion.EstanteriaJava;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -116,11 +117,6 @@ class Llibre {
 
     public void setQualificacio(double qualificacio) {
         this.qualificacio = qualificacio;
-    }
-
-    @Override
-    public String toString() {
-        return id + ". " + titol + " - Autor: " + autor + " - Calificación: " + qualificacio;
     }
 }
 
