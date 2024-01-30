@@ -6,7 +6,7 @@ import java.util.List;
  */
 public class HeroSlay {
     public static void main(String[] args) {
-        List<Carta> mazo = new ArrayList<>();
+        // List<Carta> mazo = new ArrayList<>();
         List<Personaje> personajes = new ArrayList<>();
         Carta Carta1 = new Carta("Pepe", TipoCarta.ATAQUE, 3);
         Carta1.pintarInformacion();
@@ -16,18 +16,18 @@ public class HeroSlay {
         Carta3.pintarInformacion();
         Personaje Heroe = new Personaje("Heroe", 10);
         Personaje Villano = new Personaje("Villano", 10);
-        mazo.add(Carta1);
-        mazo.add(Carta2);
-        mazo.add(Carta3);
+        // mazo.add(Carta1);
+        // mazo.add(Carta2);
+        // mazo.add(Carta3);
         personajes.add(Heroe);
         personajes.add(Villano);
 
-        Heroe.añadirCartaAlMazo(Carta1);
-        Heroe.añadirCartaAlMazo(Carta2);
-        Heroe.añadirCartaAlMazo(Carta3);
-        Villano.añadirCartaAlMazo(Carta1);
-        Villano.añadirCartaAlMazo(Carta2);
-        Villano.añadirCartaAlMazo(Carta3);
+        Heroe.anadirCartaAlMazo(Carta1);
+        Heroe.anadirCartaAlMazo(Carta2);
+        Heroe.anadirCartaAlMazo(Carta3);
+        Villano.anadirCartaAlMazo(Carta1);
+        Villano.anadirCartaAlMazo(Carta2);
+        Villano.anadirCartaAlMazo(Carta3);
 
         while (Heroe.getVidaPersonaje() > 0 && Villano.getVidaPersonaje() > 0) {
             jugarRonda(Heroe, Villano);

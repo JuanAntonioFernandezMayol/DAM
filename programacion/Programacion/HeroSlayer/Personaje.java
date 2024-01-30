@@ -7,15 +7,13 @@ public class Personaje {
     public Integer vidaPersonaje;
     public List<Carta> mazo;
 
-
-
     public Personaje(String nombrePersonaje, Integer vidaPersonaje) {
         this.nombrePersonaje = nombrePersonaje;
         this.vidaPersonaje = vidaPersonaje;
         this.mazo = new ArrayList<>();
     }
 
-    public void mostrarInformacion(){
+    public void mostrarInformacion() {
         System.out.println("Nombre: " + nombrePersonaje);
         System.out.println("Vida: " + vidaPersonaje);
     }
@@ -34,14 +32,15 @@ public class Personaje {
         if (carta != null) {
             if (carta.getTipoCarta() == TipoCarta.ATAQUE) {
                 vidaPersonaje -= carta.getAtaqueCarta();
-                if (vidaPersonaje < 0) vidaPersonaje = 0;
+                if (vidaPersonaje < 0)
+                    vidaPersonaje = 0;
             } else if (carta.getTipoCarta() == TipoCarta.CURA) {
                 vidaPersonaje += carta.getAtaqueCarta();
             }
         }
     }
 
-    public void añadirCartaAlMazo(Carta carta) {
+    public void anadirCartaAlMazo(Carta carta) {
         mazo.add(carta);
     }
 
