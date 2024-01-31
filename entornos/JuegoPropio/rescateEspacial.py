@@ -7,7 +7,7 @@ pygame.init()
 #Creamos una fuente para la pausa
 font = pygame.font.Font(None, 30)
 #Creamos la pantalla
-tamanyo = (600, 800)
+tamanyo = (700, 800)
 pantalla = pygame.display.set_mode(tamanyo)
 
 
@@ -17,8 +17,8 @@ FPS = 60
 
 ultimo_enemigo_creado = 0
 ultimo_aliado_creado = 0
-frecuencia_creacion_enemigos = 1500
-frecuencia_creacion_aliados = 1500
+frecuencia_creacion_enemigos = 1800
+frecuencia_creacion_aliados = 2000
 
 #Texto del juego
 puntuacion = 0

@@ -5,7 +5,7 @@ class Nave(pygame.sprite.Sprite):
     def __init__(self, posicion) -> None:
         super().__init__()
         #Cargamos la imagen
-        images = [pygame.image.load("helicoptero2.png")]
+        images = [pygame.image.load("astronave.png")]
         self.images = [pygame.transform.scale(images[0],(60,60))]
         self.indice_images = 0
         self.image = self.images[self.indice_images]
@@ -31,17 +31,27 @@ class Nave(pygame.sprite.Sprite):
         pantalla = pygame.display.get_surface()
         #Gestionamos las teclas
         if teclas[pygame.K_LEFT]:
-            self.rect.x -= 6
+            self.rect.x -= 5
             self.rect.x = max(0, self.rect.x)
         #Aqui disparamos.
         if teclas[pygame.K_SPACE]:
             self.disparar(grupo_sprite_todos, grupo_sprite_balas)
         
         if teclas[pygame.K_RIGHT]:
-            self.rect.x += 6
+            self.rect.x += 5
             pantalla = pygame.display.get_surface()
             self.rect.x = min(pantalla.get_width()-self.image.get_width(), self.rect.x)
             
+            
+        if teclas[pygame.K_UP]:
+            self.rect.y -= 2
+            self.rect.y = max(0, self.rect.y)
+            
+        if teclas[pygame.K_DOWN]:
+            self.rect.y += 5
+            pantalla = pygame.display.get_surface()
+            self.rect.y = min(pantalla.get_height()-self.image.get_height(), self.rect.y)
+        
         # if teclas[pygame.K_t]:
         #     texto = self.font.render("+20", True, "White")
         #     pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
@@ -86,7 +96,7 @@ class Enemigo(pygame.sprite.Sprite):
         super().__init__()
         #Cargamos la imagen
         imagen = pygame.image.load("roca.png")
-        self.image = pygame.transform.scale(imagen,(60,30))
+        self.image = pygame.transform.scale(imagen,(60,40))
         # self.image = pygame.transform.rotate(self.image, 180)
         self.mask = pygame.mask.from_surface(self.image)
         #Cremamos un rectangulo a partir de la imagen
@@ -113,7 +123,7 @@ class Aliado(pygame.sprite.Sprite):
         super().__init__()
         #Cargamos la imagen
         imagen = pygame.image.load("astronauta.png")
-        self.image = pygame.transform.scale(imagen,(60,30))
+        self.image = pygame.transform.scale(imagen,(60,40))
         # self.image = pygame.transform.rotate(self.image, 180)
         self.mask = pygame.mask.from_surface(self.image)
         #Cremamos un rectangulo a partir de la imagen
@@ -138,7 +148,7 @@ class Aliado(pygame.sprite.Sprite):
 class Fondo(pygame.sprite.Sprite):
     def __init__(self, posicion) -> None:
         super().__init__()
-        images = pygame.image.load("Fondo.png")
+        images = pygame.image.load("Fondo3.jpg")
         pantalla = pygame.display.get_surface()
         self.image = pygame.transform.scale(images, (pantalla.get_width(), pantalla.get_height()))
         self.rect = self.image.get_rect()
