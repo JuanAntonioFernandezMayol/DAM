@@ -1,4 +1,5 @@
 import pygame
+import pygame_menu
 
 class Nave(pygame.sprite.Sprite):
     #Aqui ceamos el costructor
@@ -19,6 +20,9 @@ class Nave(pygame.sprite.Sprite):
         self.rect.topleft=posicion
         self.ultimo_disparo = 0
         self.font = pygame.font.Font(None, 30)
+        
+        #Las vidas
+        self.vidas = 3
         
     def update (self,*args: any,**kwargs: any):
         #Capturamos las teclas
@@ -80,7 +84,14 @@ class Nave(pygame.sprite.Sprite):
             # pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
             
         # grupo_sprite_texto = args[6]
-        
+        enemigoColision = pygame.sprite.spritecollideany(self, grupo_sprite_enemigos)
+        if enemigoColision:
+            enemigoColision.kill()
+            self.vidas = self.vidas -1
+            print(self.vidas)
+            if self.vidas == 0:
+                self.kill()
+                running = False
 
     def disparar(self, grupo_sprite_todos, grupo_sprite_balas):
         momento_actual = pygame.time.get_ticks()
@@ -106,9 +117,7 @@ class Enemigo(pygame.sprite.Sprite):
         
     def update (self,*args: any,**kwargs: any) -> None:
         self.rect.y += 3
-        pantalla = pygame.display.get_surface()
-        if (self.rect.y > pantalla.get_height()):
-            self.kill()
+        # pantalla = pygame.display.get_surface()
             
         #Capturamos el argumento 2 -> grupo_sprite_balas
         grupo_sprite_balas = args[2]
@@ -133,9 +142,9 @@ class Aliado(pygame.sprite.Sprite):
         
     def update (self,*args: any,**kwargs: any) -> None:
         self.rect.y += 3
-        pantalla = pygame.display.get_surface()
-        if (self.rect.y > pantalla.get_height()):
-            self.kill()
+        # pantalla = pygame.display.get_surface()
+        # if (self.rect.y > pantalla.get_height()):
+        #     self.kill()
             
         #Capturamos el argumento 2 -> grupo_sprite_balas
         grupo_sprite_balas = args[2]
