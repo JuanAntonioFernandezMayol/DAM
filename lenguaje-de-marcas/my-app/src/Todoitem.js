@@ -1,9 +1,11 @@
 import React from "react";
 function TodoItem ({content}){
-    return <div>
+    return (
+    <div className="">
     <li>{content}</li>
-    <div>X</div>
+    <button variant="primary">Botón</button>
     </div>
+    );
 } 
 
 export default TodoItem;
