@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,121 +10,174 @@
 
 <body>
     <main>
-    <div class="contenedor">
-    <div class="targeta">
-        <div class="img">
-        <img src="https://picsum.photos/536/354" alt="Random imagen">
+        <div class="funcionalidades">
+            <label for="start-date">Fecha de inicio:</label>
+            <input type="text" id="start-date">
+
+            <label for="end-date">Fecha de fin:</label>
+            <input type="text" id="end-date">
+
+            <label for="destination">Destino:</label>
+            <input type="text" id="destination">
+
+            <div id="budget-slider"></div>
+            <p>Presupuesto: <span id="budget-amount">0€</span></p>
         </div>
-        <div class="descripcion">
-            <h1>
-                Destino 1
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates? Iusto odio inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti dignissimos quod alias velit laboriosam aliquam deserunt eveniet.
-            </p>
+
+        <div class="tarjetas">
+            <div class="targeta" data-precio="400" data-start-date="2024-02-01" data-end-date="2024-03-01"
+                data-destination="Barcelona">
+                <div class="img">
+                    <img src="https://picsum.photos/536/354" alt="Random imagen">
+                </div>
+                <div class="descripcion">
+                    <h1>Destino 1</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates?
+                        Iusto odio
+                        inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti
+                        dignissimos
+                        quod alias velit laboriosam aliquam deserunt eveniet.</p>
+                    <p class="precio">$400</p>
+                    <p class="fecha" style="display: none;">01/02/2024</p>
+                </div>
+            </div>
+            <div class="targeta" data-precio="200" data-start-date="2024-02-01" data-end-date="2024-03-01"
+                data-destination="Mallorca">
+                <div class="img">
+                    <img src="https://picsum.photos/id/237/536/354" alt="Perro">
+                </div>
+                <div class="descripcion">
+                    <h1>Destino 1</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto
+                        voluptates? Iusto odio
+                        inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque
+                        deleniti dignissimos
+                        quod alias velit laboriosam aliquam deserunt eveniet.</p>
+                    <p class="precio">$200</p>
+                    <p class="fecha" style="display: none;">01/02/2024</p>
+                </div>
+            </div>
+            <div class="targeta" data-precio="300" data-start-date="2024-02-21" data-end-date="2024-03-21"
+                data-destination="Valencia">
+                <div class="img">
+                    <img src="https://picsum.photos/seed/picsum/536/354" alt="Montaña">
+                </div>
+                <div class="descripcion">
+                    <h1>Destino 1</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat,
+                        architecto voluptates? Iusto odio
+                        inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque
+                        deleniti dignissimos
+                        quod alias velit laboriosam aliquam deserunt eveniet.</p>
+                </div>
+                <p class="precio">$300</p>
+                <p class="fecha" style="display: none;">01/02/2024</p>
+            </div>
+            <div class="targeta" data-precio="500" data-start-date="2024-02-11" data-end-date="2024-03-11"
+                data-destination="Barcelona">
+                <div class="img">
+                    <img src="https://picsum.photos/id/1060/536/354?blur=2" alt="Cafe">
+                </div>
+                <div class="descripcion">
+                    <h1>Destino 1</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat,
+                        architecto voluptates? Iusto odio
+                        inventore, quibusdam tenetur eum possimus recusandae voluptatibus
+                        doloremque deleniti dignissimos
+                        quod alias velit laboriosam aliquam deserunt eveniet.</p>
+                    <p class="precio">$500</p>
+                    <p class="fecha" style="display: none;">01/02/2024</p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="targeta">
-        <div class="img">
-        <img src="https://picsum.photos/id/237/536/354" alt="Perro">
+        <div class="tarjetas">
+            <div class="targeta" data-precio="400" data-start-date="2024-04-01" data-end-date="2024-06-21"
+                data-destination="Barcelona">
+                <div class="img">
+                    <img src="https://picsum.photos/id/870/536/354?grayscale&blur=2" alt="Faro">
+                </div>
+                <div class="descripcion">
+                    <h1>Destino 1</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Repellat, architecto voluptates? Iusto odio
+                        inventore, quibusdam tenetur eum possimus recusandae
+                        voluptatibus doloremque deleniti dignissimos
+                        quod alias velit laboriosam aliquam deserunt eveniet.</p>
+                    <p class="precio">$400</p>
+                    <p class="fecha" style="display: none;">01/04/2024</p>
+                </div>
+            </div>
+            <div class="targeta" data-precio="200" data-start-date="2024-04-01" data-end-date="2024-06-01"
+                data-destination="Valencia">
+                <div class="img">
+                    <img src="https://picsum.photos/536/354" alt="Random imagen">
+                </div>
+                <div class="descripcion">
+                    <h1>Destino 1</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Repellat, architecto voluptates? Iusto odio
+                        inventore, quibusdam tenetur eum possimus recusandae
+                        voluptatibus doloremque deleniti dignissimos
+                        quod alias velit laboriosam aliquam deserunt
+                        eveniet.</p>
+                    <p class="precio">$200</p>
+                    <p class="fecha" style="display: none;">01/04/2024</p>
+                </div>
+            </div>
+            <div class="targeta" data-precio="400" data-start-date="2024-04-10" data-end-date="2024-06-01"
+                data-destination="Barcelona">
+                <div class="img">
+                    <img src="https://fastly.picsum.photos/id/83/200/300.webp?hmac=j-0AAK82xqhQAg5NvbVjJnbcVVrjw4ir1vNquSRtdh4"
+                        alt="Bosque">
+                </div>
+                <div class="descripcion">
+                    <h1>Destino 1</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Repellat, architecto
+                        voluptates? Iusto odio
+                        inventore, quibusdam tenetur eum possimus
+                        recusandae voluptatibus doloremque deleniti
+                        dignissimos
+                        quod alias velit laboriosam aliquam deserunt
+                        eveniet.</p>
+                    <p class="precio">$400</p>
+                    <p class="fecha" style="display: none;">01/04/2024</p>
+                </div>
+            </div>
+            <div class="targeta" data-precio="300" data-start-date="2024-02-01" data-end-date="2024-12-01"
+                data-destination="Mallorca">
+                <div class="img">
+                    <img src="https://fastly.picsum.photos/id/576/200/300.jpg?grayscale&hmac=9GNPADlzUZzvAQmoTeuejrdjLwyY2Lus4ilasJbzX90"
+                        alt="Carretera">
+                </div>
+                <div class="descripcion">
+                    <h1>Destino 1</h1>
+                    <p>Lorem ipsum dolor sit amet
+                        consectetur, adipisicing elit.
+                        Repellat, architecto voluptates?
+                        Iusto odio
+                        inventore, quibusdam tenetur eum
+                        possimus recusandae voluptatibus
+                        doloremque deleniti dignissimos
+                        quod alias velit laboriosam aliquam
+                        deserunt eveniet.</p>
+                    <p class="precio">$300</p>
+                    <p class="fecha" style="display: none;">01/04/2024</p>
+                </div>
+            </div>
         </div>
-        <div class="descripcion">
-            <h1>
-                Destino 2
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates? Iusto odio inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti dignissimos quod alias velit laboriosam aliquam deserunt eveniet.
-            </p>
-        </div>
-    </div>
-    <div class="targeta">
-        <div class="img">
-        <img src="https://picsum.photos/seed/picsum/536/354" alt="Montaña">
-        </div>
-        <div class="descripcion">
-            <h1>
-                Destino 3
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates? Iusto odio inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti dignissimos quod alias velit laboriosam aliquam deserunt eveniet.
-            </p>
-        </div>
-    </div>
-    <div class="targeta">
-        <div class="img">
-        <img src="https://picsum.photos/id/1084/536/354?grayscale" alt="Foca Marina">
-        </div>
-        <div class="descripcion">
-            <h1>
-                Destino 4
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates? Iusto odio inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti dignissimos quod alias velit laboriosam aliquam deserunt eveniet.
-            </p>
-        </div>
-    </div>
-    <div class="targeta">
-        <div class="img">
-        <img src="https://picsum.photos/id/1060/536/354?blur=2" alt="Cafe">
-        </div>
-        <div class="descripcion">
-            <h1>
-                Destino 5
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates? Iusto odio inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti dignissimos quod alias velit laboriosam aliquam deserunt eveniet.
-            </p>
-        </div>
-    </div>
-    <div class="targeta">
-        <div class="img">
-        <img src="https://picsum.photos/id/870/536/354?grayscale&blur=2" alt="Faro">
-        </div>
-        <div class="descripcion">
-            <h1>
-                Destino 6
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates? Iusto odio inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti dignissimos quod alias velit laboriosam aliquam deserunt eveniet.
-            </p>
-        </div>
-    </div>
-    <div class="targeta">
-        <div class="img">
-        <img src="https://fastly.picsum.photos/id/83/200/300.webp?hmac=j-0AAK82xqhQAg5NvbVjJnbcVVrjw4ir1vNquSRtdh4" alt="Bosque">
-        </div>
-        <div class="descripcion">
-            <h1>
-                Destino 7
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates? Iusto odio inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti dignissimos quod alias velit laboriosam aliquam deserunt eveniet.
-            </p>
-        </div>
-    </div>
-    <div class="targeta">
-        <div class="img">
-        <img src="https://fastly.picsum.photos/id/576/200/300.jpg?grayscale&hmac=9GNPADlzUZzvAQmoTeuejrdjLwyY2Lus4ilasJbzX90" alt="Carretera">
-        </div>
-        <div class="descripcion">
-            <h1>
-                Destino 8
-            </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat, architecto voluptates? Iusto odio inventore, quibusdam tenetur eum possimus recusandae voluptatibus doloremque deleniti dignissimos quod alias velit laboriosam aliquam deserunt eveniet.
-            </p>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-    integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-</div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+            integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/date-fns@2.23.0/parseISO/index.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
 
-    <script src="app.js"></script>
 
-</main>
+        <script src="app.js"></script>
+
+    </main>
 </body>
 
 </html>

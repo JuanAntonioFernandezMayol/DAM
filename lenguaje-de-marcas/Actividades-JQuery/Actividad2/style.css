@@ -1,22 +1,96 @@
+    body {
+        background-color: #333;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-.contenedor {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
-    width: 80%;
-}
+    .funcionalidades {
+        display: grid;
+            padding: 10px;
+            background-color: #555;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            grid-template-columns: repeat(8, 1fr);
+            align-items: center;
+        }
 
-.targeta {
-    box-shadow: 5px 5px 5px rgba(108, 108, 108, 0.409);
-    margin: 10px;
-    transition: all 150ms;
-}
+    .funcionalidades label {
+            display: block;
+            margin: 10px 0;
+            color: #fff;
+        }
 
-.targeta:hover {
-    transform: scale(1.05);
-}
+    .funcionalidades input {
+                    padding: 8px;
+                    margin-bottom: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 3px;
+                    margin: auto;
+    }
 
-img {
-    height: 300px;
-    width: 330px;
-}
+    .tarjetas {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin: 15px 0px;
+    }
+
+    .targeta {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    img  {
+        width: 100%;
+        height: 255px;
+        object-fit: cover;
+    }
+
+    .descripcion {
+        padding: 10px;
+    }
+
+    #budget-slider {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+        #budget-slider {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        #budget-slider .ui-slider-range {
+            background: #5cb85c;
+        }
+
+        #budget-slider .ui-slider-handle {
+            border: 1px solid #5cb85c;
+            background: #fff;
+            width: 1.2em;
+            height: 1.2em;
+            border-radius: 50%;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #budget-amount {
+            text-align: center;
+            color: #5cb85c;
+            font-weight: bold;
+        }
+
+    label,input,p {
+        margin-bottom: 10px;
+    }
+
+    .precio {
+            color: #5cb85c;
+            font-weight: bold;
+            text-align: center;
+        }
