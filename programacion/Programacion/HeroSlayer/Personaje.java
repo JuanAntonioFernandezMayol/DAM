@@ -50,16 +50,6 @@ public class Personaje {
         }
     }
 
-    public Carta elegirCartaAleatoria() {
-        Random random = new Random();
-        if (!mazo.isEmpty()) {
-            return mazo.get(random.nextInt(mazo.size()));
-        } else {
-            System.out.println(nombrePersonaje + " no tiene cartas en el mazo.");
-            return null;
-        }
-    }
-
     public void anadirCartaAlMazo(Carta carta) {
         mazo.add(carta);
     }

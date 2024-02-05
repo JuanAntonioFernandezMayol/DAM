@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -8,11 +9,12 @@ import java.util.Scanner;
  */
 public class HeroSlay {
     private static final Scanner scanner = new Scanner(System.in);
+    private static final Random random = new Random();
 
     public static void main(String[] args) {
         // List<Carta> mazo = new ArrayList<>();
         List<Personaje> personajes = new ArrayList<>();
-        Carta Carta1 = new Carta("Pepe", TipoCarta.ATAQUE, 3);
+        Carta Carta1 = new Carta("Pepe", TipoCarta.ATAQUE, 4);
         Carta Carta2 = new Carta("Luis", TipoCarta.CURA, 2);
         Carta Carta3 = new Carta("Jose", TipoCarta.ATURDIR, 1);
 
@@ -30,7 +32,11 @@ public class HeroSlay {
         Villano.anadirCartaAlMazo(Carta3);
 
         while (Heroe.getVidaPersonaje() > 0 && Villano.getVidaPersonaje() > 0) {
-            jugarRonda(Heroe, Villano);
+            if (random.nextBoolean()) {
+                jugarRonda(Heroe, Villano);
+            } else {
+                jugarRonda(Villano, Heroe);
+            }
         }
         System.out.println("\n=== Resultado Final ===");
         if (Heroe.getVidaPersonaje() <= 0) {
@@ -45,7 +51,7 @@ public class HeroSlay {
 
         mostrarInformacionJugador(jugador1);
 
-        Carta cartaJugador1 = elegirCarta(jugador1);
+        Carta cartaJugador1 = mostrarInformacionJugador(jugador1);
         System.out.println(jugador1.getNombrePersonaje() + " juega la carta: ");
         cartaJugador1.pintarInformacion();
         jugador2.recibirEfecto(cartaJugador1);
@@ -53,7 +59,7 @@ public class HeroSlay {
         if (!jugador2.isAturdido() && cartaJugador1.getTipoCarta() != TipoCarta.ATURDIR) {
             mostrarInformacionJugador(jugador2);
 
-            Carta cartaJugador2 = elegirCarta(jugador2);
+            Carta cartaJugador2 = mostrarInformacionJugador(jugador2);
             System.out.println(jugador2.getNombrePersonaje() + " juega la carta: ");
             cartaJugador2.pintarInformacion();
             jugador1.recibirEfecto(cartaJugador2);
@@ -62,9 +68,9 @@ public class HeroSlay {
         mostrarResultadoRonda(jugador1, jugador2);
     }
 
-    private static void mostrarInformacionJugador(Personaje jugador) {
+    private static Carta mostrarInformacionJugador(Personaje jugador) {
         System.out.println("\nInformación para " + jugador.getNombrePersonaje() + ":");
-        mostrarCartasAleatorias(jugador);
+        return mostrarCartasAleatorias(jugador);
     }
 
     private static void mostrarResultadoRonda(Personaje jugador1, Personaje jugador2) {
@@ -74,7 +80,7 @@ public class HeroSlay {
         System.out.println("--------------");
     }
 
-    private static void mostrarCartasAleatorias(Personaje jugador) {
+    private static Carta mostrarCartasAleatorias(Personaje jugador) {
         System.out.println("Cartas en el mazo de " + jugador.getNombrePersonaje() + ":");
         List<Carta> cartas = jugador.getMazo();
         Collections.shuffle(cartas);
@@ -83,9 +89,7 @@ public class HeroSlay {
             System.out.println((i + 1) + ". " + cartas.get(i).getNombreCarta());
             cartas.get(i).pintarInformacion();
         }
-    }
 
-    private static Carta elegirCarta(Personaje jugador) {
         System.out.println("\nElige una carta (1 o 2): ");
         int opcion;
         do {
@@ -93,9 +97,7 @@ public class HeroSlay {
             opcion = scanner.nextInt();
         } while (opcion < 1 || opcion > 2);
 
-        List<Carta> cartas = jugador.getMazo();
-        Collections.shuffle(cartas); // Barajar las cartas antes de elegir
-
         return cartas.get(opcion - 1);
+
     }
 }
