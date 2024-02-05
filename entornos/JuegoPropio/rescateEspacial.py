@@ -20,18 +20,12 @@ ultimo_aliado_creado = 0
 frecuencia_creacion_enemigos = 1800
 frecuencia_creacion_aliados = 2000
 
-#Texto del juego
-puntuacion = 0
-ROJO = (255,0,0)
-consolas = pygame.font.match_font('consolas')
-
-
-def muestra_texto(pantalla,fuente,texto,color, dimensiones, x, y):
-        tipo_letra = pygame.font.Font(fuente,dimensiones)
-        superficie = tipo_letra.render(texto,True, color)
-        rectangulo = superficie.get_rect()
-        rectangulo.center = (x, y)
-        pantalla.blit(superficie,rectangulo)
+# def muestra_texto(pantalla,fuente,texto,color, dimensiones, x, y):
+#         tipo_letra = pygame.font.Font(fuente,dimensiones)
+#         superficie = tipo_letra.render(texto,True, color)
+#         rectangulo = superficie.get_rect()
+#         rectangulo.center = (x, y)
+#         pantalla.blit(superficie,rectangulo)
 
 #Creamos el bucle principal
 #Creamos el menu del juego
@@ -41,6 +35,7 @@ def set_difficulty(value, difficulty):
     global frecuencia_creacion_enemigos
     frecuencia_creacion_enemigos = difficulty
     frecuencia_creacion_aliados = difficulty
+    
 
 def start_the_game():
     # Do the job here !
@@ -53,6 +48,7 @@ def start_the_game():
     global frecuencia_creacion_enemigos
     global FPS
     global reloj
+    
     #Creamos la nave
     posicion = (360,700)
     nave = elementos.Nave(posicion)
@@ -112,9 +108,7 @@ def start_the_game():
                 grupo_sprite_aliado.add(aliado)
                 ultimo_aliado_creado = momento_actual
                 #Añadimos el texto
-                muestra_texto(pantalla,consolas,str(puntuacion), ROJO, 40, 700, 50)
-                # if nave.aliado_colision:
-                #     puntuacion +=20
+                # muestra_texto(pantalla,consolas,str(puntuacion), ROJO, 40, 700, 50)
 
             #Pintamos
             pantalla.fill((255, 255, 255))
@@ -126,8 +120,6 @@ def start_the_game():
             texto = font.render("PAUSA", True, "White")
             pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
         
-
-
         #Redibujar la pantalla
         pygame.display.flip()
 

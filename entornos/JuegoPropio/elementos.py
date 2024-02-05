@@ -11,7 +11,6 @@ class Nave(pygame.sprite.Sprite):
         self.indice_images = 0
         self.image = self.images[self.indice_images]
         self.contador_image = 0
-        self.puntuacion = 0
         self.mask = pygame.mask.from_surface(self.image)
 
         #Cremamos un rectangulo a partir de la imagen
@@ -23,6 +22,17 @@ class Nave(pygame.sprite.Sprite):
         
         #Las vidas
         self.vidas = 3
+        global font_score
+        global score_value
+        global textX
+        global textY
+        global pantalla
+        tamanyo = (700, 800)
+        pantalla = pygame.display.set_mode(tamanyo)
+        score_value = 0
+        font_score = pygame.font.Font(None, 32)
+        textX, textY = 10, 10
+        
         
     def update (self,*args: any,**kwargs: any):
         #Capturamos las teclas
@@ -66,18 +76,11 @@ class Nave(pygame.sprite.Sprite):
         grupo_sprite_enemigos = args[3]
         #Capturamos la variable de control running
         running = args[4]
-        #Detectar colisiones con los enemigos
-        enemigo_colision = pygame.sprite.spritecollideany(self, grupo_sprite_enemigos, pygame.sprite.collide_mask)
-        if enemigo_colision:
-            enemigo_colision.kill()
-            running[0] = False
-        font = pygame.font.Font(None, 30)
+
         grupo_sprite_aliados = args[5]
         aliado_colision = pygame.sprite.spritecollideany(self, grupo_sprite_aliados, pygame.sprite.collide_mask)
         if aliado_colision:
             aliado_colision.kill()
-            texto = font.render("+20 Puntos", True, "White")
-            pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
             # self.puntuacion += 20
             # print("Has obtenido +20 puntos!")
             # texto = self.font.render("+20", True, "Red")
@@ -91,7 +94,14 @@ class Nave(pygame.sprite.Sprite):
             print(self.vidas)
             if self.vidas == 0:
                 self.kill()
-                running = False
+                self.show_score += 1
+                running[0] = False
+                
+    def show_score(textX, textY):
+        score = font_score.render("Puntuación: " + str(score_value), True, (255, 255, 255))
+        pantalla.blit(score, (textX, textY))
+
+    show_score(textX, textY)
 
     def disparar(self, grupo_sprite_todos, grupo_sprite_balas):
         momento_actual = pygame.time.get_ticks()
@@ -117,8 +127,6 @@ class Enemigo(pygame.sprite.Sprite):
         
     def update (self,*args: any,**kwargs: any) -> None:
         self.rect.y += 3
-        # pantalla = pygame.display.get_surface()
-            
         #Capturamos el argumento 2 -> grupo_sprite_balas
         grupo_sprite_balas = args[2]
         bala_colision = pygame.sprite.spritecollideany(self, grupo_sprite_balas, pygame.sprite.collide_mask)
@@ -184,17 +192,3 @@ class Bala(pygame.sprite.Sprite):
         
     def update (self,*args: any,**kwargs: any) -> None:
         self.rect.y -=5
-
-# class Texto(pygame.sprite.Sprite):
-#     def __init__(self, posicion) -> None:
-#         super().__init__()
-#         pantalla = pygame.display.get_surface()
-#         texto = self.font.render("+20", True, "Red")
-#         pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
-#         self.rect = self.image.get_rect()
-#         self.rect.center = posicion
-#         self.grupo_sprite_texto.add(texto)
-        
-#     def update (self,*args: any,**kwargs: any) -> None:
-#         self.rect.y -=5
-
