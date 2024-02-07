@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/css/main.f855e6bc.css",
-    "main.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/js/main.1fadcf53.js",
+    "main.css": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/css/main.73bbf404.css",
+    "main.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/js/main.b673f399.js",
     "static/js/787.1937f22b.chunk.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/js/787.1937f22b.chunk.js",
     "index.html": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/index.html",
-    "main.f855e6bc.css.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/css/main.f855e6bc.css.map",
-    "main.1fadcf53.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/js/main.1fadcf53.js.map",
+    "main.73bbf404.css.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/css/main.73bbf404.css.map",
+    "main.b673f399.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/js/main.b673f399.js.map",
     "787.1937f22b.chunk.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/myapp/build/static/js/787.1937f22b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.1fadcf53.js"
+    "static/css/main.73bbf404.css",
+    "static/js/main.b673f399.js"
   ]
 }
