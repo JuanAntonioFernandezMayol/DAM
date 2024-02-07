@@ -9,6 +9,7 @@ font = pygame.font.Font(None, 30)
 #Creamos la pantalla
 tamanyo = (700, 800)
 pantalla = pygame.display.set_mode(tamanyo)
+font_vidas = pygame.font.Font(None, 32)
 
 
 #Creamo un reloj para limitar el framerate
@@ -20,12 +21,9 @@ ultimo_aliado_creado = 0
 frecuencia_creacion_enemigos = 1800
 frecuencia_creacion_aliados = 2000
 
-# def muestra_texto(pantalla,fuente,texto,color, dimensiones, x, y):
-#         tipo_letra = pygame.font.Font(fuente,dimensiones)
-#         superficie = tipo_letra.render(texto,True, color)
-#         rectangulo = superficie.get_rect()
-#         rectangulo.center = (x, y)
-#         pantalla.blit(superficie,rectangulo)
+#Creamos la nave
+posicion = (360,700)
+nave = elementos.Nave(posicion)
 
 #Creamos el bucle principal
 #Creamos el menu del juego
@@ -36,22 +34,27 @@ def set_difficulty(value, difficulty):
     frecuencia_creacion_enemigos = difficulty
     frecuencia_creacion_aliados = difficulty
     
+def vidas(x, y):
+    global nave
+    vidas = font_vidas.render("Vidas: " + str(elementos.Nave.getvidas(nave)), True, (255, 255, 255))
+    pantalla.blit(vidas, (x, y))
+    
+def score(x, y):
+    score = font_vidas.render("Puntuación: " + str(elementos.score), True, (255, 255, 255))
+    pantalla.blit(score, (x, y))
 
 def start_the_game():
     # Do the job here !
     #Booleano de control
     running = [True]
-    global puntuacion
     global frecuencia_creacion_aliados
     global ultimo_aliado_creado
     global ultimo_enemigo_creado
     global frecuencia_creacion_enemigos
     global FPS
     global reloj
-    
-    #Creamos la nave
-    posicion = (360,700)
-    nave = elementos.Nave(posicion)
+    global nave
+    global posicion
     
     grupo_sprite_balas = pygame.sprite.Group()
     grupo_sprite_enemigos = pygame.sprite.Group()
@@ -113,7 +116,8 @@ def start_the_game():
             #Pintamos
             pantalla.fill((255, 255, 255))
             grupo_sprite_todos.update(teclas, grupo_sprite_todos, grupo_sprite_balas, grupo_sprite_enemigos, running, grupo_sprite_aliado,grupo_sprite_texto)
-        
+            
+            
         grupo_sprite_todos.draw(pantalla)
         #Si pausa escribe esto:
         if pausado:
@@ -121,6 +125,8 @@ def start_the_game():
             pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
         
         #Redibujar la pantalla
+        score(0,20)
+        vidas(10, 40)
         pygame.display.flip()
 
 menu = pygame_menu.Menu('Welcome', 400, 300, theme=pygame_menu.themes.THEME_BLUE)
