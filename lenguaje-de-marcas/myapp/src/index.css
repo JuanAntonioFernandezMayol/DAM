@@ -11,3 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+Button:hover{
+  background-color: rgb(0, 91, 0);
+}
+
+Button{
+  border-radius: 0px 5px 5px 0px;
+  background-color: green;
+  padding: 10px;
+  border: none;
+}
+Input{
+  padding: 10px;
+  border-radius: 5px 0px 0px 5px;
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+i {
+  background-color: gray;
+  padding: 5px 10px;
+  border-radius: 0px 50px 50px 0px;
+  color: red;
+  font-weight: bold;
+  margin: auto;
+  cursor: pointer;
+}
+
+i:hover{
+  background-color: gray;
+}
+
+li{
+  width: 100%;
+  background-color: gray;
+  padding: 5px 30px;
+  border-radius: 50px 0px 0px 50px;
+  color: black;
+  margin: 3px 0px;
+}

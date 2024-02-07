@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import { Button } from "react-bootstrap";
 
 function TodoList() {
-    const [tasks, setTasks] = React.useState(["Tasca 1", "Tasca 2"]);
+    const [tasks, setTasks] = React.useState(["Tarea 1","Tarea 2"]);
     const [valor, setValor] = React.useState("")
 
 
@@ -20,14 +20,14 @@ function TodoList() {
     
     return (
         <div>
-            <h2>La Meva Llista de Tasques</h2>
+            <h2>Mi lista de tareas</h2>
             <input className="entradaTarea" value={valor} onChange={actualizarValor} type="text" required placeholder="Escribe una tarea" />
+            <Button variant="success" onClick={()=> addTask("ss")}>Añadir Tarea</Button>
             <ul>
                 {tasks.map((task, index) => (
                     <TodoItem key={index} content={task} remove={remove}/>
                 ))}
             </ul>
-            <Button variant="success" onClick={()=> addTask("ss")}>Añadir Tarea</Button>
         </div>
         
     );

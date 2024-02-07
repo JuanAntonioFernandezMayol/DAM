@@ -36,11 +36,11 @@ def set_difficulty(value, difficulty):
     
 def vidas(x, y):
     global nave
-    vidas = font_vidas.render("Vidas: " + str(elementos.Nave.getvidas(nave)), True, (255, 255, 255))
+    vidas = font_vidas.render("Vidas: " + str(elementos.Nave.getvidas(nave)), True, (255, 0, 0))
     pantalla.blit(vidas, (x, y))
     
 def score(x, y):
-    score = font_vidas.render("Puntuación: " + str(elementos.score), True, (255, 255, 255))
+    score = font_vidas.render("Puntuación: " + str(elementos.score), True, (0, 255, 0))
     pantalla.blit(score, (x, y))
 
 def start_the_game():
@@ -125,8 +125,8 @@ def start_the_game():
             pantalla.blit(texto, (pantalla.get_width() /2, pantalla.get_height() /2))
         
         #Redibujar la pantalla
-        score(0,20)
-        vidas(10, 40)
+        vidas(0, 20)
+        score(0,40)
         pygame.display.flip()
 
 menu = pygame_menu.Menu('Welcome', 400, 300, theme=pygame_menu.themes.THEME_BLUE)
