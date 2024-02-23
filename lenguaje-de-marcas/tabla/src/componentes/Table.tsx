@@ -6,13 +6,13 @@ function Table() {
         <table className="table">
             <thead>
                 <tr>
-                    <th>Producte</th>
-                    <th>Quantitat</th>
-                    <th>Preu</th>
-                    <th>Tenda</th>
-                    <th>Notes</th>
-                    <th>Comprat</th>
-                    <th>Imatge</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Tienda</th>
+                    <th>Notas</th>
+                    <th>Comprar</th>
+                    <th>Imagen</th>
                 </tr>
             </thead>
             <tbody>
