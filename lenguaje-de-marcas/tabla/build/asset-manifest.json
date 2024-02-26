@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/tabla/build/static/css/main.f1512bb5.css",
+    "main.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/tabla/build/static/js/main.7f51e5fd.js",
+    "static/js/453.a844186c.chunk.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/tabla/build/static/js/453.a844186c.chunk.js",
+    "index.html": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/tabla/build/index.html",
+    "main.f1512bb5.css.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/tabla/build/static/css/main.f1512bb5.css.map",
+    "main.7f51e5fd.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/tabla/build/static/js/main.7f51e5fd.js.map",
+    "453.a844186c.chunk.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/tabla/build/static/js/453.a844186c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1512bb5.css",
+    "static/js/main.7f51e5fd.js"
+  ]
+}
