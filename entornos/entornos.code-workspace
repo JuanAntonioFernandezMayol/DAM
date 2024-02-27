@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "entornos",
+			"path": "."
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}
