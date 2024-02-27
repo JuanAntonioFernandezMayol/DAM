@@ -1,6 +1,6 @@
 package Programacion.Animales;
 
-public class Animales {
+public abstract class Animales {
     private String nombre;
     private int edad;
     private int peso;
