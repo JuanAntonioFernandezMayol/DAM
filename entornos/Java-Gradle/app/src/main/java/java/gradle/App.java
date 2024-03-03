@@ -4,8 +4,40 @@
 package java.gradle;
 
 public class App {
-    public int sumar(int num1, int num2) {
-        int suma = num1 + num2;
+    private int[] array;
+
+    public App(int[] array) {
+        this.array = array;
+    }
+
+    public int contarElementos() {
+        return array.length;
+    }
+
+    public Integer primerElemento() {
+        return array.length > 0 ? array[0] : null;
+    }
+
+    public Integer ultimoElemento() {
+        return array.length > 0 ? array[array.length - 1] : null;
+    }
+
+    public Integer tercerElemento() {
+        return array.length >= 3 ? array[2] : null;
+    }
+
+    public Integer sumaElementos() {
+        int suma = 0;
+        for (int num : array) {
+            suma += num;
+        }
         return suma;
+    }
+
+    public Double promedioElementos() {
+        if (array.length == 0) {
+            return null;
+        }
+        return (double) sumaElementos() / array.length;
     }
 }

@@ -6,10 +6,40 @@ package java.gradle;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
+public class AppTest {
     @Test
-    void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertEquals(4, classUnderTest.sumar(2, 2));
+    public void testGestorArrays() {
+        App gestor = new App(new int[] { 1, 2, 3, 4, 5 });
+
+        assertEquals(5, gestor.contarElementos());
+        assertEquals(1, gestor.primerElemento());
+        assertEquals(5, gestor.ultimoElemento());
+        assertEquals(3, gestor.tercerElemento());
+        assertEquals(15, gestor.sumaElementos());
+        assertEquals(3.0, gestor.promedioElementos());
+
+        gestor = new App(new int[] {});
+        assertEquals(0, gestor.contarElementos());
+        assertNull(gestor.primerElemento());
+        assertNull(gestor.ultimoElemento());
+        assertNull(gestor.tercerElemento());
+        assertEquals(0, gestor.sumaElementos());
+        assertNull(gestor.promedioElementos());
+
+        gestor = new App(new int[] { 1, 2 });
+        assertEquals(2, gestor.contarElementos());
+        assertEquals(1, gestor.primerElemento());
+        assertEquals(2, gestor.ultimoElemento());
+        assertNull(gestor.tercerElemento());
+        assertEquals(3, gestor.sumaElementos());
+        assertEquals(1.5, gestor.promedioElementos());
+
+        gestor = new App(new int[] { -1, 2, -3, 4, -5 });
+        assertEquals(5, gestor.contarElementos());
+        assertEquals(-1, gestor.primerElemento());
+        assertEquals(-5, gestor.ultimoElemento());
+        assertEquals(-3, gestor.tercerElemento());
+        assertEquals(-3, gestor.sumaElementos());
+        assertEquals(-0.6, gestor.promedioElementos());
     }
 }
