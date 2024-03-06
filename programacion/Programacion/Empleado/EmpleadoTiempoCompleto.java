@@ -17,6 +17,6 @@ public class EmpleadoTiempoCompleto extends Persona implements Empleado {
 
     @Override
     public void mostrarInformacion() {
-
+        System.out.println(salario_anual);
     };
 }

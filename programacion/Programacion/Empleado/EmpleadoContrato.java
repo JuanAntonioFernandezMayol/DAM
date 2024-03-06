@@ -12,13 +12,18 @@ public class EmpleadoContrato extends Persona implements Empleado {
 
     @Override
     public void calcularSalario() {
-        // TODO Auto-generated method stub
+        if (duracionContrato > 12) {
+            salarioMensual = salarioMensual * 12;
+            System.out.println(salarioMensual);
+        } else {
+            duracionContrato = duracionContrato * salarioMensual;
+            System.out.println(duracionContrato);
+        }
 
     }
 
     @Override
     public void mostrarInformacion() {
-        // TODO Auto-generated method stub
 
     }
 }
