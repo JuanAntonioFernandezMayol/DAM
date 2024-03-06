@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/css/main.1b030b41.css",
+    "main.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/js/main.6fda76fb.js",
+    "static/js/453.8f44667a.chunk.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/js/453.8f44667a.chunk.js",
+    "index.html": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/index.html",
+    "main.1b030b41.css.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/css/main.1b030b41.css.map",
+    "main.6fda76fb.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/js/main.6fda76fb.js.map",
+    "453.8f44667a.chunk.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/js/453.8f44667a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b030b41.css",
+    "static/js/main.6fda76fb.js"
+  ]
+}

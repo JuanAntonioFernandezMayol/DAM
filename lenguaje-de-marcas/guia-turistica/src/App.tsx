@@ -4,6 +4,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Link,
 } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -21,11 +22,11 @@ function App() {
     <Container>
     <Navbar.Brand href="/">Guia-Turismo</Navbar.Brand>
       <Nav>
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/actividades-libres">Actividades Libres</Nav.Link>
-      <Nav.Link href="/hoteles">Hoteles</Nav.Link>
-      <Nav.Link href="/puntos-de-interes">Puntos de interes</Nav.Link>
-      <Nav.Link href="/restaurantes">Restaurantes</Nav.Link>
+      <Nav.Link as={Link} to="/">Home</Nav.Link>
+      <Nav.Link as={Link} to="/actividades-libres">Actividades Libres</Nav.Link>
+      <Nav.Link as={Link} to="/hoteles">Hoteles</Nav.Link>
+      <Nav.Link as={Link} to="/puntos-de-interes">Puntos de interes</Nav.Link>
+      <Nav.Link as={Link} to="/restaurantes">Restaurantes</Nav.Link>
       </Nav>
       </Container>
       </Navbar>
