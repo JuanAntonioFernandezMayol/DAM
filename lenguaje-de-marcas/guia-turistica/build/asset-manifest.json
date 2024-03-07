@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/css/main.49980cd9.css",
+    "main.css": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/css/main.0316ad9a.css",
     "main.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/js/main.13e01dbc.js",
     "static/js/453.8f44667a.chunk.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/js/453.8f44667a.chunk.js",
     "index.html": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/index.html",
-    "main.49980cd9.css.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/css/main.49980cd9.css.map",
+    "main.0316ad9a.css.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/css/main.0316ad9a.css.map",
     "main.13e01dbc.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/js/main.13e01dbc.js.map",
     "453.8f44667a.chunk.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/guia-turistica/build/static/js/453.8f44667a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.49980cd9.css",
+    "static/css/main.0316ad9a.css",
     "static/js/main.13e01dbc.js"
   ]
 }

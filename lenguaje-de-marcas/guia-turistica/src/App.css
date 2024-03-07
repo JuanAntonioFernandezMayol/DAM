@@ -27,6 +27,9 @@
 .App-link {
   color: #61dafb;
 }
+.menu{
+  justify-content: center;
+}
 .navbar .container{
   display: flex;
   justify-content: center;
