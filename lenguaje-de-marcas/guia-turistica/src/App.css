@@ -33,11 +33,7 @@
   flex-wrap: wrap;
   margin: 0px;
 }
-.navbar-brand {
-  padding: 0px 100px 0 0;
-  display: flex;
-  justify-self: start;
-}
+
 nav-link{
   padding: 0px 20px;
 }

@@ -5,7 +5,6 @@ import {
   Routes,
   Route,
   Link,
-  NavLink,
 } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -15,7 +14,6 @@ import ActividadesLibres from "./views/actividades-libres"
 import Hoteles from "./views/hoteles"
 import PuntosInteres from "./views/puntos-interes"
 import Restaurantes from "./views/restaurantes"
-
 function App() {
   return (
     <div>
@@ -23,7 +21,6 @@ function App() {
     <div>
       <Navbar bg="dark" data-bs-theme="dark" className='menu'>
         <Container>
-          <Nav.Link as={Link} to="/">Guia-Turismo</Nav.Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
