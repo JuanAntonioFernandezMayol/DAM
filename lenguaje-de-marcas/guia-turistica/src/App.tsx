@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
   Link,
+  NavLink,
 } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -18,28 +19,34 @@ import Restaurantes from "./views/restaurantes"
 function App() {
   return (
     <div>
-    <Navbar bg="dark" data-bs-theme="dark" className='menu'>
-    <Container>
-    <Navbar.Brand href="/">Guia-Turismo</Navbar.Brand>
-      <Nav>
-      <Nav.Link as={Link} to="/">Home</Nav.Link>
-      <Nav.Link as={Link} to="/actividades-libres">Actividades Libres</Nav.Link>
-      <Nav.Link as={Link} to="/hoteles">Hoteles</Nav.Link>
-      <Nav.Link as={Link} to="/puntos-de-interes">Puntos de interes</Nav.Link>
-      <Nav.Link as={Link} to="/restaurantes">Restaurantes</Nav.Link>
-      </Nav>
-      </Container>
+    <BrowserRouter>
+    <div>
+      <Navbar bg="dark" data-bs-theme="dark" className='menu'>
+        <Container>
+          <Nav.Link as={Link} to="/">Guia-Turismo</Nav.Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+          <Nav>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/actividades-libres">Actividades Libres</Nav.Link>
+            <Nav.Link as={Link} to="/hoteles">Hoteles</Nav.Link>
+            <Nav.Link as={Link} to="/puntos-de-interes">Puntos de interes</Nav.Link>
+            <Nav.Link as={Link} to="/restaurantes">Restaurantes</Nav.Link>
+          </Nav>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
+
       
-        <BrowserRouter>
         <Routes>
-          <Route path="/actividades-libres" element={<ActividadesLibres/>} />
-          <Route path="/hoteles" element={<Hoteles/>}/>
-          <Route path="/puntos-de-interes" element={<PuntosInteres />}/>
-          <Route path="/restaurantes" element={<Restaurantes />}/>
-          <Route path="/" element={<Inicio />}/>
+          <Route path="/actividades-libres" element={<ActividadesLibres />} />
+          <Route path="/hoteles" element={<Hoteles />} />
+          <Route path="/puntos-de-interes" element={<PuntosInteres />} />
+          <Route path="/restaurantes" element={<Restaurantes />} />
+          <Route path="/" element={<Inicio />} />
         </Routes>
-        </BrowserRouter>
+    </div>
+    </BrowserRouter>
     </div>
   );
 };
