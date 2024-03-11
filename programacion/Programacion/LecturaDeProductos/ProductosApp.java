@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class ProductosApp {
+
     public static void main(String[] args) {
         HashMap<Integer, Producto> inventario = new HashMap<>();
 
@@ -32,9 +33,9 @@ public class ProductosApp {
             Scanner sc = new Scanner(System.in);
             System.out.println("Introducce un codigo de barras: ");
             codigo = sc.nextInt();
-            inventario.get(codigo);
-            if (inventario.get(codigo) != null) {
-                System.out.println("El producto es: " + inventario.(producto.getCodigo()).getNombre() + producto.getNombre);
+            Producto eleccion = inventario.get(codigo);
+            if (eleccion != null) {
+                System.out.println("El producto es: " + eleccion.toString());
             } else {
                 System.out.println("El producto no a sido encontrado!");
             }

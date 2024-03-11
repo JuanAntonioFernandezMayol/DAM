@@ -16,11 +16,6 @@ public class Producto {
         return nombre;
     }
 
-    public void mostrarproducto() {
-        System.out.println(nombre);
-        System.out.println(precio);
-    }
-
     public Integer getCodigo() {
         return codigo;
     }
