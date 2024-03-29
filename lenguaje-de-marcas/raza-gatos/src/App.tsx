@@ -33,6 +33,8 @@ function App() {
             <Route path="/breeds" element={<Breeds />} />
             <Route path="/" element={<Inicio />} />
             <Route path="/breeds/:id" element={<DetallesRaza />} />
+
+            <Route index element={<Inicio />} />
           </Routes>
         </div>
       </BrowserRouter>
