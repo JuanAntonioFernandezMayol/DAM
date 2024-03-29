@@ -48,7 +48,7 @@ const DetallesRaza = () => {
           <Card className="text-center align-self-baseline" key={raza.id}>
             <Card.Body>
               <Card.Title>{raza.name}</Card.Title>
-              <h4>Details:</h4> {raza.description}
+              <h4>Detalles:</h4> {raza.description}
               <Card.Img />
               <Image
                 className="img-fluid align-self-end"
@@ -59,6 +59,7 @@ const DetallesRaza = () => {
                 }
                 alt={raza.name}
                 fluid
+                style={{ maxWidth: "200px", height: "250px" }}
               />
             </Card.Body>
           </Card>

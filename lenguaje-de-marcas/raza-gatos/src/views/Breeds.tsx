@@ -83,7 +83,7 @@ function Breeds() {
                     src={`https://cdn2.thecatapi.com/images/${raza.reference_image_id}.jpg`}
                     alt={raza.name}
                     fluid
-                    style={{ maxWidth: "200px", height: "400px" }}
+                    style={{ maxWidth: "200px", height: "250px" }}
                   />
                 )}
               </Card>
