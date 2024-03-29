@@ -30,8 +30,8 @@ function App() {
           </Navbar>
 
           <Routes>
-            <Route path="/breeds" element={<Breeds />} />
             <Route path="/" element={<Inicio />} />
+            <Route path="/breeds" element={<Breeds />} />
             <Route path="/breeds/:id" element={<DetallesRaza />} />
 
             <Route index element={<Inicio />} />
