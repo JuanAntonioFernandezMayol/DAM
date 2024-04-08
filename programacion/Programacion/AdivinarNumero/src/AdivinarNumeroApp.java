@@ -1,0 +1,6 @@
+/**
+ * AdivinarNumeroApp
+ */
+public class AdivinarNumeroApp {
+
+}
