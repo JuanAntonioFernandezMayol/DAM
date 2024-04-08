@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.3451a5ef.css",
-    "main.js": "/static/js/main.a1217aba.js",
-    "static/js/453.a2b256e0.chunk.js": "/static/js/453.a2b256e0.chunk.js",
-    "index.html": "/index.html",
-    "main.3451a5ef.css.map": "/static/css/main.3451a5ef.css.map",
-    "main.a1217aba.js.map": "/static/js/main.a1217aba.js.map",
-    "453.a2b256e0.chunk.js.map": "/static/js/453.a2b256e0.chunk.js.map"
+    "main.css": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/raza-gatos/build/static/css/main.3451a5ef.css",
+    "main.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/raza-gatos/build/static/js/main.948c51c0.js",
+    "static/js/453.a2b256e0.chunk.js": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/raza-gatos/build/static/js/453.a2b256e0.chunk.js",
+    "index.html": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/raza-gatos/build/index.html",
+    "main.3451a5ef.css.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/raza-gatos/build/static/css/main.3451a5ef.css.map",
+    "main.948c51c0.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/raza-gatos/build/static/js/main.948c51c0.js.map",
+    "453.a2b256e0.chunk.js.map": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/raza-gatos/build/static/js/453.a2b256e0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3451a5ef.css",
-    "static/js/main.a1217aba.js"
+    "static/js/main.948c51c0.js"
   ]
 }
