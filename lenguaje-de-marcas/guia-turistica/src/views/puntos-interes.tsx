@@ -2,6 +2,7 @@ import React from 'react'
 import { puntosDeInteres } from "../components/puntosInteres"
 import { Col, Row } from "react-bootstrap";
 
+
 function PuntosInteres() {
     return (
         <div className="card">
