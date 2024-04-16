@@ -15,7 +15,7 @@ const App = () => {
   const [frutas, setFrutas] = useState<Fruta[]>([]);
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/JuanAntonioFernandezMayol/DAM/main/lenguaje-de-marcas/react-json/src/data%2Cjson")
+    fetch("https://raw.githubusercontent.com/JuanAntonioFernandezMayol/DAM/main/lenguaje-de-marcas/react-json/src/data.json")
       .then((response) => response.json())
       .then((data) => setFrutas(data as Fruta[]));
   }, []);
