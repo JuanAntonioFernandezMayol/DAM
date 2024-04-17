@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/DAM/lenguaje-de-marcas/react-json/static/css/main.db62923b.css",
-    "main.js": "/DAM/lenguaje-de-marcas/react-json/static/js/main.5b2115a7.js",
-    "static/js/453.4bd2b574.chunk.js": "/DAM/lenguaje-de-marcas/react-json/static/js/453.4bd2b574.chunk.js",
-    "index.html": "/DAM/lenguaje-de-marcas/react-json/index.html",
-    "main.db62923b.css.map": "/DAM/lenguaje-de-marcas/react-json/static/css/main.db62923b.css.map",
-    "main.5b2115a7.js.map": "/DAM/lenguaje-de-marcas/react-json/static/js/main.5b2115a7.js.map",
-    "453.4bd2b574.chunk.js.map": "/DAM/lenguaje-de-marcas/react-json/static/js/453.4bd2b574.chunk.js.map"
+    "main.css": "/set%20PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/build&&react-scripts%20build/static/css/main.db62923b.css",
+    "main.js": "/set%20PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/build&&react-scripts%20build/static/js/main.f373d192.js",
+    "static/js/453.4bd2b574.chunk.js": "/set%20PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/build&&react-scripts%20build/static/js/453.4bd2b574.chunk.js",
+    "index.html": "/set%20PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/build&&react-scripts%20build/index.html",
+    "main.db62923b.css.map": "/set%20PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/build&&react-scripts%20build/static/css/main.db62923b.css.map",
+    "main.f373d192.js.map": "/set%20PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/build&&react-scripts%20build/static/js/main.f373d192.js.map",
+    "453.4bd2b574.chunk.js.map": "/set%20PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/build&&react-scripts%20build/static/js/453.4bd2b574.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.db62923b.css",
-    "static/js/main.5b2115a7.js"
+    "static/js/main.f373d192.js"
   ]
 }

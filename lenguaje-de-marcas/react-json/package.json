@@ -1,5 +1,5 @@
 {
-  "homepage": "https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/",
+  "homepage": "set PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/react-json/build&&react-scripts build",
   "name": "react-json",
   "version": "0.1.0",
   "private": true,
