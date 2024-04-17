@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Card } from "react-bootstrap";
+import { Card, Container, Row, Col } from 'react-bootstrap';
 
 interface Fruta {
   id: number;
@@ -21,23 +21,27 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <h1>Lista de frutas</h1>
-      {frutas.map((fruta) => (
-        <Card key={fruta.id}>
-          <Card.Img variant="top" src={fruta.imagenUrl} />
-          <Card.Body>
-            <Card.Title>{fruta.nombre}</Card.Title>
-            <Card.Text>
-              <p>ID: {fruta.id} </p>
-              <p>Color: {fruta.color}</p>
-              <p>Origen: {fruta.origen}</p>
-              <p>Disponible: {fruta.disponible ? "Sí" : "No"}</p>
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      ))}
-    </div>
+    <Container>
+      <h1 className="text-center">Lista de frutas</h1>
+      <Row xs={1} md={2} lg={3} xl={4} className="g-4">
+        {frutas.map((fruta) => (
+          <Col key={fruta.id}>
+            <Card>
+              <Card.Img variant="top" src={fruta.imagenUrl} className="img-fluid"/>
+              <Card.Body>
+                <Card.Title>{fruta.nombre}</Card.Title>
+                <Card.Text>
+                  <p>ID: {fruta.id} </p>
+                  <p>Color: {fruta.color}</p>
+                  <p>Origen: {fruta.origen}</p>
+                  <p>Disponible: {fruta.disponible ? "Sí" : "No"}</p>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 
