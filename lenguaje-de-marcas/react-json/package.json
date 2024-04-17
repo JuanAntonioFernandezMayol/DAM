@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set PUBLIC_URL=https://juanantoniofernandezmayol.github.io/DAM/lenguaje-de-marcas/raza-gatos/build&&react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
