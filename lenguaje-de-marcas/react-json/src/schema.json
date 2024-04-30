@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/Welcome3Element"
+    },
+    "definitions": {
+        "Welcome3Element": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "nombre": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "disponible": {
+                    "type": "boolean"
+                },
+                "color": {
+                    "type": "string"
+                },
+                "origen": {
+                    "type": "string"
+                },
+                "imagenUrl": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".jpg"
+                    ]
+                }
+            },
+            "required": [
+                "color",
+                "disponible",
+                "id",
+                "imagenUrl",
+                "nombre",
+                "origen"
+            ],
+            "title": "Welcome3Element"
+        }
+    }
+}
