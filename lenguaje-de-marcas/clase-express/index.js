@@ -57,22 +57,30 @@ app.get('/usuaris', (req, res) => {
   const rows = db2.prepare('SELECT * FROM Usuaris').all()
   res.render("usuaris", usuaris = rows)
 })
-
-
-app.get('/usuari?id', (req, res) => {
-  const rows = db2.prepare('SELECT * FROM Usuaris WHERE id = ?').get(usuariid)
-  res.json(rows)
+app.get('/usuari', (req, res) => {
+  res.render('usuari')
 })
+
+
+// app.get('/usuari?id', (req, res) => {
+//   const rows = db2.prepare('SELECT * FROM Usuaris WHERE id = ?').get(usuariid)
+//   res.json(rows)
+// })
 
 app.get('/productes', (req, res) => {
   const rows = db2.prepare('SELECT * FROM Productes').all()
   res.render("productes", productes = rows)
 })
 
-app.get('/producte?id', (req, res) => {
-  const rows = db2.prepare('SELECT * FROM Productes WHERE id = ?').get(usuariid)
-  res.json(rows)
+app.get('/producte', (req, res) => {
+  res.render('producte')
 })
+
+
+// app.get('/producte?id', (req, res) => {
+//   const rows = db2.prepare('SELECT * FROM Productes WHERE id = ?').get(usuariid)
+//   res.json(rows)
+// })
 
 app.get('/comandes', (req, res) => {
   const rows = db2.prepare('SELECT * FROM Comandes c inner join Usuaris u on c.usuari_id = u.id inner join Productes p on c.producte_id = p.id').all()
@@ -83,3 +91,33 @@ app.get('/comanda', (req, res) => {
   const rows = db2.prepare('SELECT * FROM Comandes c inner join Usuaris u on c.usuari_id = u.id inner join Productes p on c.producte_id = p.id where c.id = ?').all()
   res.json(rows)
 })
+
+app.post('/usuari', (req, res) => {
+  // personaId = req.body.id;
+  // const rows = db.prepare('SELECT * FROM personas WHERE id = ?').get(personaId)
+  // console.log(rows)
+  // res.json(rows)
+  console.log(req.body);
+  if (req.body.nom && req.body.email) {
+    const statement = db2.prepare('INSERT INTO Usuaris (nom, email) VALUES (?,?)')
+  const info = statement.run(req.body.nom, req.body.email);
+  console.log(info);
+  }
+    res.redirect('usuari');
+})
+
+app.post('/producte', (req, res) => {
+  // personaId = req.body.id;
+  // const rows = db.prepare('SELECT * FROM personas WHERE id = ?').get(personaId)
+  // console.log(rows)
+  // res.json(rows)
+  console.log(req.body);
+  if (req.body.nom && req.body.preu) {
+    const statement = db2.prepare('INSERT INTO Productes (nom, preu) VALUES (?,?)')
+  const info = statement.run(req.body.nom, req.body.preu);
+  console.log(info);
+  }
+    res.redirect('producte');
+})
+
+

@@ -1,0 +1,6 @@
+<%- include("header") %>
+<form action="usuaris" method="get">
+    <% usuaris.forEach((usuaris, index)=> { %>
+        <h2><%= usuaris.nom %></h2>
+      <% }) %></form>
+    <%- include("footer") %>
