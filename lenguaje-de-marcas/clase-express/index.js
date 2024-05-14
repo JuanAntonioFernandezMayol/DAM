@@ -118,6 +118,8 @@ app.post('/producte', (req, res) => {
   console.log(info);
   }
     res.redirect('producte');
+
+    console.log("hola")
 })
 
 
