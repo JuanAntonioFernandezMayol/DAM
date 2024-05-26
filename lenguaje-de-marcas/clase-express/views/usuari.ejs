@@ -1,11 +1,13 @@
 <%- include("header") %>
 
-<form action="/usuari" method="post">
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nom" id="nombre">
-    <label for="apellido">Email:</label>
-    <input type="text" name="email" id="email">
-    <button type="submit">Enviar</button>
-</form>
+<h1><%= usuari.nom %></h1>
+<p><%= usuari.email %></p>
+
+<h2>Comandes</h2>
+<ul>
+  <% comandas.forEach(function(comanda) { %>
+    <li>Producte ID: <%= comanda.producte_id %></li>
+  <% }); %>
+</ul>
 
 <%- include("footer") %>

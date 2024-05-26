@@ -1,6 +1,12 @@
 <%- include("header") %>
-<form action="productes" method="get">
-    <% productes.forEach((productes, index)=> { %>
-        <h2><%= productes.nom %></h2>
-      <% }) %></form>
-    <%- include("footer") %>
+
+<h1>Productes</h1>
+<ul>
+  <% productes.forEach(function(producte) { %>
+    <li><a href="/productes/<%= producte.id %>"><%= producte.nomProducte %></a></li>
+  <% }); %>
+</ul>
+
+<a href="producte">Crear Producto</a>
+
+<%- include("footer") %>

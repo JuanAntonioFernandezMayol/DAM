@@ -1,6 +1,12 @@
 <%- include("header") %>
-<form action="usuaris" method="get">
-    <% usuaris.forEach((usuaris, index)=> { %>
-        <h2><%= usuaris.nom %></h2>
-      <% }) %></form>
-    <%- include("footer") %>
+
+<h1>Usuaris</h1>
+<ul>
+  <% usuaris.forEach(function(usuari) { %>
+    <li><a href="/usuaris/<%= usuari.id %>"><%= usuari.nom %></a></li>
+  <% }); %>
+</ul>
+
+<a href="/usuari">Crear Usuari</a>
+
+<%- include("footer") %>

@@ -1,0 +1,10 @@
+<%- include("header") %>
+
+<h1>Comandas</h1>
+<ul>
+  <% comandas.forEach(function(comanda) { %>
+    <li><a href="/comandas/<%= comanda.id %>"><%= comanda.id %></a></li>
+  <% }); %>
+</ul>
+
+<%- include("footer") %>
