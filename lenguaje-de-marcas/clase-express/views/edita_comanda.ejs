@@ -1,0 +1,13 @@
+<%- include("header") %>
+
+<h1>Edita Comanda</h1>
+
+<form action="/editaComanda/<%= comanda.id %>" method="post">
+  <label for="usuari_id">Usuari ID:</label><br>
+  <input type="text" id="usuari_id" name="usuari_id" value="<%= comanda.usuari_id %>"><br>
+  <label for="producte_id">Producte ID:</label><br>
+  <input type="text" id="producte_id" name="producte_id" value="<%= comanda.producte_id %>"><br>
+  <input type="submit" value="Actualitza Comanda">
+</form>
+
+<%- include("footer") %>

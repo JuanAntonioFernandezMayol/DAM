@@ -145,6 +145,36 @@ app.get('/comandas/:id', (req, res) => {
   }
 });
 
+app.get('/comanda/:id', (req, res) => {
+  const { id } = req.params;
+  const comanda = db2.prepare('SELECT * FROM Comandas WHERE id = ?').get(id);
+  if (comanda) {
+    const usuari = db2.prepare('SELECT * FROM Usuaris WHERE id = ?').get(comanda.usuari_id);
+    const producte = db2.prepare('SELECT * FROM Productes WHERE id = ?').get(comanda.producte_id);
+    res.render('detalls_comanda', { comanda: comanda, usuari: usuari, producte: producte });
+  } else {
+    res.send('Comanda no trobada');
+  }
+});
+
+app.get('/afegeixComanda', (req, res) => {
+  res.render('crear_comanda');
+});
+
+
+app.post('/afegeixComanda', (req, res) => {
+  const { usuari_id, producte_id } = req.body;
+  const usuari = db2.prepare('SELECT * FROM Usuaris WHERE id = ?').get(usuari_id);
+  const producte = db2.prepare('SELECT * FROM Productes WHERE id = ?').get(producte_id);
+  if (usuari && producte) {
+    const stmt = db2.prepare('INSERT INTO Comandas (usuari_id, producte_id) VALUES (?, ?)');
+    const info = stmt.run(usuari_id, producte_id);
+    res.redirect(`/comandas/${info.lastInsertRowid}`);
+  } else {
+    res.send('Usuari o producte no trobat');
+  }
+});
+
 
 app.post('/usuari', (req, res) => {
   // personaId = req.body.id;
@@ -176,4 +206,82 @@ app.post('/producte', (req, res) => {
     console.log("hola")
 })
 
+
+app.get('/editaProducte/:id', (req, res) => {
+  const { id } = req.params;
+  const producte = db2.prepare('SELECT * FROM Productes WHERE id = ?').get(id);
+  if (producte) {
+    res.render('edita_producte', { producte: producte });
+  } else {
+    res.send('Producte no trobat');
+  }
+});
+
+app.post('/editaProducte/:id', (req, res) => {
+  const { id } = req.params;
+  const { nomProducte, preu } = req.body;
+  const stmt = db2.prepare('UPDATE Productes SET nomProducte = ?, preu = ? WHERE id = ?');
+  stmt.run(nomProducte, preu, id);
+  res.redirect(`/producte/${id}`);
+});
+
+app.get('/producte/:id', (req, res) => {
+  const { id } = req.params;
+  const producte = db2.prepare('SELECT * FROM Productes WHERE id = ?').get(id);
+  if (producte) {
+    res.render('detalls_producte', { producte: producte });
+  } else {
+    res.send('Producte no trobat');
+  }
+});
+
+
+
+app.get('/editaUsuari/:id', (req, res) => {
+  const { id } = req.params;
+  const usuari = db2.prepare('SELECT * FROM Usuaris WHERE id = ?').get(id);
+  if (usuari) {
+    res.render('edita_usuari', { usuari: usuari });
+  } else {
+    res.send('Usuari no trobat');
+  }
+});
+
+app.get('/editaComanda/:id', (req, res) => {
+  const { id } = req.params;
+  const comanda = db2.prepare('SELECT * FROM Comandas WHERE id = ?').get(id);
+  if (comanda) {
+    res.render('edita_comanda', { comanda: comanda });
+  } else {
+    res.send('Comanda no trobat');
+  }
+});
+
+app.get('/usuari/:id', (req, res) => {
+  const { id } = req.params;
+  const usuari = db2.prepare('SELECT * FROM Usuaris WHERE id = ?').get(id);
+  const comandas = db2.prepare('SELECT * FROM Comandas WHERE usuari_id = ?').all(id);
+  if (usuari) {
+    res.render('usuari', { usuari: usuari, comandas: comandas });
+  } else {
+    res.send('Usuari no trobat');
+  }
+});
+
+
+app.post('/editaUsuari/:id', (req, res) => {
+  const { id } = req.params;
+  const { nom, email } = req.body;
+  const stmt = db2.prepare('UPDATE Usuaris SET nom = ?, email = ? WHERE id = ?');
+  stmt.run(nom, email, id);
+  res.redirect(`/usuari/${id}`);
+});
+
+app.post('/editaComanda/:id', (req, res) => {
+  const { id } = req.params;
+  const { usuari_id, producte_id } = req.body;
+  const stmt = db2.prepare('UPDATE Comandas SET usuari_id = ?, producte_id = ? WHERE id = ?');
+  stmt.run(usuari_id, producte_id, id);
+  res.redirect(`/comanda/${id}`);
+});
 

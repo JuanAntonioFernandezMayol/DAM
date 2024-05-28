@@ -1,0 +1,13 @@
+<%- include("header") %>
+
+<h1>Edita Producte</h1>
+
+<form action="/editaProducte/<%= producte.id %>" method="post">
+  <label for="nomProducte">Nom:</label><br>
+  <input type="text" id="nomProducte" name="nomProducte" value="<%= producte.nomProducte %>"><br>
+  <label for="preu">Preu:</label><br>
+  <input type="text" id="preu" name="preu" value="<%= producte.preu %>"><br>
+  <input type="submit" value="Actualitza Producte">
+</form>
+
+<%- include("footer") %>

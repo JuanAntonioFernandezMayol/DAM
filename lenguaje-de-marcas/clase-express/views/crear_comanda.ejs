@@ -1,0 +1,13 @@
+<%- include("header") %>
+
+<h1>Afegeix Comanda</h1>
+
+<form action="/afegeixComanda" method="post">
+  <label for="usuari_id">Usuari ID:</label><br>
+  <input type="text" id="usuari_id" name="usuari_id"><br>
+  <label for="producte_id">Producte ID:</label><br>
+  <input type="text" id="producte_id" name="producte_id"><br>
+  <input type="submit" value="Afegeix Comanda">
+</form>
+
+<%- include("footer") %>

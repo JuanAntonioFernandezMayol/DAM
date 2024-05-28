@@ -1,7 +1,10 @@
+<!-- detalls_comanda.ejs -->
 <%- include("header") %>
 
 <h1>Comanda ID: <%= comanda.id %></h1>
 <p>Usuari: <%= usuari.nom %></p>
 <p>Producte: <%= producte.nomProducte %></p>
+
+<a href="/editaComanda/<%= comanda.id %>">Edita aquesta comanda</a>
 
 <%- include("footer") %>

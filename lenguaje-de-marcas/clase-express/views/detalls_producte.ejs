@@ -1,8 +1,10 @@
 <%- include("header") %>
 
-<h1><%= producte.nomProducte %></h1>
-<p>ID: <%= producte.id %></p>
-<p>Preu: <%= producte.preu %></p>
+<h1>Producte ID: <%= producte.id %></h1>
+<p>Nom: <%= producte.nom %></p>
+<p>Descripció: <%= producte.descripcio %></p>
+<p>Preu: <%= producte.preu %>€</p>
 
+<a href="/editaProducte/<%= producte.id %>">Edita aquest producte</a>
 
 <%- include("footer") %>

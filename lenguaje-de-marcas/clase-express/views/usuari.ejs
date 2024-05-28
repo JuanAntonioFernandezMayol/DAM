@@ -1,13 +1,9 @@
 <%- include("header") %>
 
-<h1><%= usuari.nom %></h1>
-<p><%= usuari.email %></p>
+<h1>Usuari ID: <%= usuari.id %></h1>
+<p>Nom: <%= usuari.nom %></p>
+<p>Email: <%= usuari.email %></p>
 
-<h2>Comandes</h2>
-<ul>
-  <% comandas.forEach(function(comanda) { %>
-    <li>Producte ID: <%= comanda.producte_id %></li>
-  <% }); %>
-</ul>
+<a href="/editaUsuari/<%= usuari.id %>">Edita aquest usuari</a>
 
 <%- include("footer") %>
