@@ -6,8 +6,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * La clase principal de la aplicación Gourmet Manager.
+ */
 public class App {
+
     public static void main(String[] args) {
+
+        /**
+         * Método principal que inicia la aplicación.
+         *
+         * @param args Los argumentos de la línea de comandos.
+         */
+
         JFrame frame = new JFrame("Gourmet Manager");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
@@ -40,6 +51,13 @@ public class App {
         frame.setVisible(true);
     }
 
+    /**
+     * Obtiene una conexión a la base de datos.
+     *
+     * @return La conexión a la base de datos.
+     * @throws SQLException Si ocurre un error al conectarse a la base de datos.
+     */
+
     private static Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -53,6 +71,9 @@ public class App {
         return DriverManager.getConnection(url, user, password);
     }
 
+    /**
+     * Muestra la pantalla de gestión de restaurantes.
+     */
     private static void showRestauranteScreen() {
         JFrame frame = new JFrame("Gestión de Restaurantes");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -104,6 +125,13 @@ public class App {
         frame.setVisible(true);
     }
 
+    /**
+     * Añade un nuevo restaurante a la base de datos.
+     *
+     * @param nombre    El nombre del restaurante.
+     * @param direccion La dirección del restaurante.
+     * @param telefono  El teléfono del restaurante.
+     */
     private static void addRestaurante(String nombre, String direccion, String telefono) {
         if (nombre.isEmpty() || direccion.isEmpty() || telefono.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Error",
@@ -127,6 +155,11 @@ public class App {
         }
     }
 
+    /**
+     * Muestra la lista de restaurantes en el panel dado.
+     *
+     * @param panel El panel donde se mostrarán los restaurantes.
+     */
     private static void viewRestaurantes(JPanel panel) {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         try (Connection conn = getConnection()) {
@@ -150,6 +183,9 @@ public class App {
         }
     }
 
+    /**
+     * Muestra la pantalla de gestión de chefs.
+     */
     private static void showChefScreen() {
         JFrame frame = new JFrame("Gestión de Chefs");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -203,6 +239,11 @@ public class App {
         frame.setVisible(true);
     }
 
+    /**
+     * Muestra la lista de chefs en el panel dado.
+     *
+     * @param panel El panel donde se mostrarán los chefs.
+     */
     private static void viewChefs(JPanel panel) {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         try (Connection conn = getConnection()) {
@@ -225,6 +266,13 @@ public class App {
         }
     }
 
+    /**
+     * Añade un nuevo chef a la base de datos.
+     *
+     * @param nombre        El nombre del chef.
+     * @param especialidad  La especialidad del chef.
+     * @param restauranteId El ID del restaurante al que pertenece el chef.
+     */
     private static void addChef(String nombre, String especialidad, int restauranteId) {
         if (nombre.isEmpty() || especialidad.isEmpty() || restauranteId <= 0) {
             JOptionPane.showMessageDialog(null,
@@ -248,6 +296,9 @@ public class App {
         }
     }
 
+    /**
+     * Muestra la pantalla de gestión de platos.
+     */
     private static void showPlatoScreen() {
         JFrame frame = new JFrame("Gestión de Platos");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -289,6 +340,11 @@ public class App {
         frame.setVisible(true);
     }
 
+    /**
+     * Muestra la lista de platos en el panel dado.
+     *
+     * @param panel El panel donde se mostrarán los platos.
+     */
     private static void addPlato(String nombre, String tipo, double precio, int restauranteId, JPanel panel) {
         if (nombre.isEmpty() || tipo.isEmpty() || precio <= 0 || restauranteId <= 0) {
             JOptionPane.showMessageDialog(null,
@@ -314,6 +370,14 @@ public class App {
         }
     }
 
+    /**
+     * Añade un nuevo plato a la base de datos.
+     *
+     * @param nombre      El nombre del plato.
+     * @param descripcion La descripción del plato.
+     * @param precio      El precio del plato.
+     * @param chefId      El ID del chef que creó el plato.
+     */
     private static void viewPlatos(JPanel panel) {
         panel.removeAll();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -340,6 +404,9 @@ public class App {
         panel.repaint();
     }
 
+    /**
+     * Muestra la pantalla de gestión de menús.
+     */
     private static void showMenuScreen() {
         JFrame frame = new JFrame("Gestión de Menús");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -389,6 +456,42 @@ public class App {
 
     }
 
+    /**
+     * Muestra la lista de menús en el panel dado.
+     *
+     * @param panel El panel donde se mostrarán los menús.
+     */
+    private static void viewMenus(JPanel panel) {
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        try (Connection conn = getConnection()) {
+            String query = "SELECT * FROM menu";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                String nombre = resultSet.getString("nombre");
+                int plato1Id = resultSet.getInt("plato1Id");
+                int plato2Id = resultSet.getInt("plato2Id");
+                double precioRebajado = resultSet.getDouble("precioRebajado");
+                int restauranteId = resultSet.getInt("restauranteId");
+
+                JLabel menuLabel = new JLabel("Nombre: " + nombre + ", Plato 1 ID: " + plato1Id + ", Plato 2 ID: "
+                        + plato2Id + ", Precio Rebajado: " + precioRebajado + ", Restaurante ID: " + restauranteId);
+                panel.add(menuLabel);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "No se pudo obtener los menús", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
+     * Añade un nuevo menú a la base de datos.
+     *
+     * @param nombre        El nombre del menú.
+     * @param descripcion   La descripción del menú.
+     * @param restauranteId El ID del restaurante al que pertenece el menú.
+     */
     private static void addMenu(String nombre, int plato1Id, int plato2Id, double precioRebajado,
             int restauranteId) {
         if (nombre.isEmpty() || plato1Id <= 0 || plato2Id <= 0 || precioRebajado <= 0 || restauranteId <= 0) {
@@ -415,30 +518,9 @@ public class App {
         }
     }
 
-    private static void viewMenus(JPanel panel) {
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        try (Connection conn = getConnection()) {
-            String query = "SELECT * FROM menu";
-            PreparedStatement stmt = conn.prepareStatement(query);
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String nombre = resultSet.getString("nombre");
-                int plato1Id = resultSet.getInt("plato1Id");
-                int plato2Id = resultSet.getInt("plato2Id");
-                double precioRebajado = resultSet.getDouble("precioRebajado");
-                int restauranteId = resultSet.getInt("restauranteId");
-
-                JLabel menuLabel = new JLabel("Nombre: " + nombre + ", Plato 1 ID: " + plato1Id + ", Plato 2 ID: "
-                        + plato2Id + ", Precio Rebajado: " + precioRebajado + ", Restaurante ID: " + restauranteId);
-                panel.add(menuLabel);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "No se pudo obtener los menús", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
+    /**
+     * Muestra la pantalla de gestión de reservas.
+     */
     private static void showReservaScreen() {
         JFrame frame = new JFrame("Gestión de Reservas");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -479,6 +561,11 @@ public class App {
         frame.setVisible(true);
     }
 
+    /**
+     * Muestra la lista de reservas en el panel dado.
+     *
+     * @param panel El panel donde se mostrarán las reservas.
+     */
     private static void viewReservas(JPanel panel) {
         panel.removeAll(); // Limpiar el panel antes de añadir las nuevas reservas
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -505,6 +592,14 @@ public class App {
         panel.repaint(); // Repintar el panel después de añadir las nuevas reservas
     }
 
+    /**
+     * Añade una nueva reserva a la base de datos.
+     *
+     * @param clienteId     El ID del cliente que realiza la reserva.
+     * @param restauranteId El ID del restaurante donde se realiza la reserva.
+     * @param fecha         La fecha de la reserva.
+     * @param hora          La hora de la reserva.
+     */
     private static void addReserva(String fecha, String clienteNombre, String clienteTelefono, int restauranteId,
             JPanel panel) {
         if (fecha.isEmpty() || clienteNombre.isEmpty() || clienteTelefono.isEmpty() || restauranteId <= 0) {
