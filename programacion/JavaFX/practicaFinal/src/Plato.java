@@ -1,6 +1,3 @@
-import java.sql.Connection;
-import java.util.List;
-
 public class Plato {
     private int id;
     private String nombre;
